@@ -1,11 +1,24 @@
 const http = require("http");
+console.log(http.createServer());
 const port = 3000;
+const handlers = require("./handlers");
+// console.log(handlers);
+
 
 http.createServer((req, res) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/plain'
-    });
+    // TESTING TO MAKE SURE SERVER IS WORKING
+    // "req" is the incoming message
+    // "res" is the server response
+    // res.writeHead(200, {
+    //     'Content-Type': 'text/plain'
+    // });
 
-    res.write("Hello JS World!");
-    res.end();
+    // res.write("Hello JS World!");
+    // res.end();
+    for (let handler of handlers) {
+        if(!handler(req, res)) {
+            break;
+        }
+    }
+
 }).listen(port);
