@@ -45,6 +45,37 @@ module.exports = (req, res) => {
         index.on("error", (err) => {
             console.log(err);
         });
+    } else if (pathname === '/cats/add-breed' && req.method === 'POST') {
+        let formData = "";
+
+        req.on("data", (data) => {
+            console.log("This is the var data: ", data); // Print <Buffer [bunch of hex data numbers]>
+            formData += data;
+            console.log("This is var formData:", formData); // Prints my string input
+        });
+
+        req.on("end", () => {
+            let body = qs.parse(formData);
+
+            fs.readFile("./data/breeds.json", (err, data) => {
+                if(err) {
+                    throw err;
+                }
+
+                let breed = JSON.parse(data);
+                breeds.push(body.breed);
+                let json = JSON.stringify(breeds);
+
+                fs.writeFile("./data/breeds.json", json, "utf-8", () => console.log("The breed was uploaded successfully"));
+            });
+
+            console.log("Running up to here");
+
+            res.writeHead(302, {location: "/"});
+            res.end();
+        });
+    } else if (pathname === '/cats/add-cat' && req.method === 'POST') {
+
     } else {
         return true;
     }
