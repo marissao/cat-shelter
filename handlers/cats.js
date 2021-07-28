@@ -49,24 +49,3 @@ module.exports = (req, res) => {
         return true;
     }
 };
-
-
-        // fs.readFile(filepath, (err, data) => {
-        //     if(err) {
-        //         console.log(err);
-        //         res.writeHead(404, {
-        //             'Content-Type': 'text/plain'
-        //         });
-
-        //         res.write(404);
-        //         res.end();
-        //         return;
-        //     }
-
-        //     res.writeHead(200, {
-        //         'Content-Type': 'text/html'
-        //     });
-
-        //     res.write(data);
-        //     res.end();
-        // });
