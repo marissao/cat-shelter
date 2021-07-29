@@ -90,7 +90,7 @@ module.exports = (req, res) => {
             if (err) throw err;
             let oldPath = files.upload.path;
             console.log("This is oldPath: ", oldPath);
-            let newPath = path.normalize(path.join(".", "/content/images/" + files.upload.name));
+            let newPath = path.normalize(path.join(__dirname, "../content/images/" + files.upload.name));
             console.log("This is newPath: ", newPath);
 
             fs.rename(oldPath, newPath, (err) => {
