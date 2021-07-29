@@ -4,7 +4,7 @@
   "description": "Cat Shelter Lab",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marissao/cat-shelter/issues"
   },
-  "homepage": "https://github.com/marissao/cat-shelter#readme"
+  "homepage": "https://github.com/marissao/cat-shelter#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }

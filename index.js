@@ -1,5 +1,5 @@
 const http = require("http");
-console.log(http.createServer());
+// console.log("This is the server obj: ", http.createServer());
 const port = 3000;
 const handlers = require("./handlers");
 // console.log(handlers);

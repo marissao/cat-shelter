@@ -32,7 +32,7 @@ module.exports = (req, res) => {
                 res.end();
                 return;
             }
-            console.log(pathname);
+            // console.log("This is the pathname: ", pathname); // This is the pathname:  /content/styles/site.css
             res.writeHead(200, {
                 'Content-Type': getContentType(pathname)
             });
